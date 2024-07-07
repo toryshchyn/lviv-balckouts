@@ -329,6 +329,10 @@ const ElectricityStatusApp = () => {
   }
 
   function calculateTimeSpan(startTime, endTime) {
+    if (startTime == null || endTime == null) {
+      return 1000000;
+    }
+
     const timeDiff = endTime.getTime() - startTime.getTime();
     const minutes = Math.floor(timeDiff / (1000 * 60));
     return minutes;
